@@ -24,12 +24,12 @@ export function browser(env: any): Configuration {
         plugins.push(...[
             // new BundleAnalyzerPlugin(),
             // plugins that apply in production builds only
-            new AngularCompilerPlugin({
+            new AngularCompilerPlugin((<any>{
                 mainPath: helper.root("client", "boot.browser.ts"),
                 tsConfigPath: "./tsconfig.json",
-                entryModule: helper.root("client", "app", "app.module.browser#AppModule"),
+                entryModule: helper.root("client", "app", "app.module.browser#AppModule")
                 // todo exclude in tsconfig exclude: ["./**/*.server.ts"]
-            }),
+            })),
             new optimize.UglifyJsPlugin({
                 output: (<any>{
                     ascii_only: true,
@@ -39,7 +39,6 @@ export function browser(env: any): Configuration {
     }
 
     const configuration: Configuration = {
-        stats:"verbose",
         entry: {
             "app": helper.root("client", "boot.browser.ts")
         },

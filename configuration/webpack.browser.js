@@ -29,7 +29,9 @@ function browser(env) {
             new webpack_2.AngularCompilerPlugin({
                 mainPath: helper.root("client", "boot.browser.ts"),
                 tsConfigPath: "./tsconfig.json",
-                entryModule: helper.root("client", "app", "app.module.browser#AppModule")
+                entryModule: helper.root("client", "app", "app.module.browser#AppModule"),
+                exclude: ["./**/*.server.ts"]
+                // todo exclude in tsconfig exclude: ["./**/*.server.ts"]
             }),
             new webpack_1.optimize.UglifyJsPlugin({
                 output: {
@@ -39,7 +41,6 @@ function browser(env) {
         ]);
     }
     var configuration = {
-        stats: "verbose",
         entry: {
             "app": helper.root("client", "boot.browser.ts")
         },
