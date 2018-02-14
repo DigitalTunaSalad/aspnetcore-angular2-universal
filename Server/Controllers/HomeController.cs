@@ -1,7 +1,5 @@
-using Asp2017.Server.Helpers;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
 using Microsoft.AspNetCore.SpaServices.Prerendering;
 using Microsoft.AspNetCore.NodeServices;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +8,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using System;
-using Asp2017.Server.Models;
+using AspCoreServer.Helpers;
 
 namespace AspCoreServer.Controllers
 {
@@ -34,7 +32,7 @@ namespace AspCoreServer.Controllers
 
     [HttpGet]
     [Route("sitemap.xml")]
-    public async Task<IActionResult> SitemapXml()
+    public IActionResult SitemapXml()
     {
       String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 

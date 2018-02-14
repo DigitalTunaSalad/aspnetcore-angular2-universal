@@ -1,4 +1,3 @@
-using Asp2017.Server.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
@@ -9,15 +8,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspCoreServer.Models;
 
-namespace Asp2017.Server.Helpers
+namespace AspCoreServer.Helpers
 {
     public static class HttpRequestExtensions
     {
-    public static IRequest AbstractRequestInfo(this HttpRequest request)
+    public static AbstractInfoRequest AbstractRequestInfo(this HttpRequest request)
     {
 
-      IRequest requestSimplified = new IRequest();
+      AbstractInfoRequest requestSimplified = new AbstractInfoRequest();
       requestSimplified.cookies = request.Cookies;
       requestSimplified.headers = request.Headers;
       requestSimplified.host = request.Host;

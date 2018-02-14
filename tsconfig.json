@@ -1,4 +1,4 @@
-﻿{
+{
   "compilerOptions": {
     "moduleResolution": "node",
     "module": "es2015",
@@ -11,6 +11,8 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "allowUnreachableCode": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "lib": [
       "es2016",
       "dom"
@@ -18,6 +20,6 @@
     "types": [ "node" ]
   },
   "include": [
-    "ClientApp"
+    "client"
   ]
 }
