@@ -17,11 +17,11 @@
     <!-- Files not to show in IDE -->
     <None Remove="yarn.lock" />
     <Content Remove="wwwroot\dist\**" />
-    <None Remove="ClientApp\dist\**" />
+    <None Remove="client\dist\**" />
     <Content Remove="coverage\**" />
 
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
-    <Content Remove="ClientApp\**" />
+    <Content Remove="client\**" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
@@ -45,7 +45,7 @@
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
-      <DistFiles Include="wwwroot\dist\**; ClientApp\dist\**" />
+      <DistFiles Include="wwwroot\dist\**; client\dist\**" />
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -54,9 +54,9 @@
   </Target>
   <Target Name="CleanDist" AfterTargets="Clean">
     <ItemGroup>
-      <FilesToDelete Include="ClientApp\dist\**; wwwroot\dist\**" />
+      <FilesToDelete Include="client\dist\**; wwwroot\dist\**" />
     </ItemGroup>
     <Delete Files="@(FilesToDelete)" />
-    <RemoveDir Directories="ClientApp\dist; wwwroot\dist" />
+    <RemoveDir Directories="client\dist; wwwroot\dist" />
   </Target>
 </Project>
